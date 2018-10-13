@@ -1,0 +1,13 @@
+package com.api.restful.db;
+
+public class FileDB {
+	
+	public void addProfile(String profileName) {
+		
+	}
+
+	public static void main(String[] args) {
+		
+	}
+
+}

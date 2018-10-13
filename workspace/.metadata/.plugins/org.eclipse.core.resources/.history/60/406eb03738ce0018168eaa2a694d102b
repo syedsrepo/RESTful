@@ -1,0 +1,34 @@
+package com.api.restful;
+
+import io.dropwizard.Application;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
+
+public class TestDropWizardApplication extends Application<TestDropWizardConfiguration> {
+
+    public static void main(final String[] args) throws Exception {
+        new TestDropWizardApplication().run(args);
+    }
+
+    @Override
+    public String getName() {
+        return "TestDropWizard";
+    }
+
+    @Override
+    public void initialize(final Bootstrap<TestDropWizardConfiguration> bootstrap) {
+    	bootstrap.addBundle(new SwaggerBundle<TestDropWizardConfiguration>() {
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(YourConfiguration configuration) {
+                return configuration.swaggerBundleConfiguration;
+            }
+        });
+    }
+
+    @Override
+    public void run(final TestDropWizardConfiguration configuration,
+                    final Environment environment) {
+        // TODO: implement application
+    }
+
+}

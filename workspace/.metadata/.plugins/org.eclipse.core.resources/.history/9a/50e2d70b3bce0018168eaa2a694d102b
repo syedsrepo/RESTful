@@ -1,0 +1,22 @@
+package com.api.restful.resources;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/studentManagement/api/")
+@Api(value = "Student Management API", description = "Student Management API")
+
+public class ProfileResource {
+	@GET
+	@ApiOperation("Sample endpoint")
+    public String allEvents() {
+        return "{Syed Salahuddin}";
+    }
+}

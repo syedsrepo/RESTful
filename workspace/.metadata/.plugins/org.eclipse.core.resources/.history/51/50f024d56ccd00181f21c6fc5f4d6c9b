@@ -1,0 +1,9 @@
+package com.calix.profile.resources;
+
+
+@Path("events")
+@Produces(MediaType.APPLICATION_JSON)
+
+public class ProfileResource {
+
+}

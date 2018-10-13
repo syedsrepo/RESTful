@@ -1,0 +1,44 @@
+package com.api.restful.resources;
+
+import com.api.restful.db.*;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/profiles")
+@Api("/profiles")
+public class ProfileResource {
+	@GET
+	@ApiOperation("Get the number of Profiles available")
+    public String getProfileCount() {
+		FileDB db = new FileDB();
+        return " { " + "\"No_of_Profiles\":\""  + db.getCount() + "\" }";
+    }
+	
+	@POST
+    //@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Get access token",
+            notes = "Authenticate user and get a access token.",
+            response = ProfilePOJO.class
+    )
+    public ProfilePOJO postForToken(
+            @FormParam("username") @ApiParam(defaultValue = "username") String username,
+            @FormParam("password") @ApiParam(defaultValue = "q") String password
+    ) {
+        return new ProfilePOJO(username, 1234);
+    }
+}
+
+
+
+
+

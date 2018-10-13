@@ -1,0 +1,21 @@
+package com.api.restful.resources;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/sample")
+@Api("/sample")
+public class ProfileResource {
+	@GET
+	@ApiOperation("Sample GET Request")
+    public String allEvents() {
+        return "{Syed Salahuddin}";
+    }
+}

@@ -1,0 +1,10 @@
+package com.api.restful.db;
+
+public class FileDB {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

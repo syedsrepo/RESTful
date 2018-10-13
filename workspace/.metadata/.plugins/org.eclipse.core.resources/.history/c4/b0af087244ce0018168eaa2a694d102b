@@ -1,0 +1,45 @@
+package com.api.restful.resources;
+
+import com.api.restful.db.*;
+
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
+@Path("/profiles")
+@Api("/profiles")
+public class ProfileResource {
+	@GET
+	@ApiOperation("Get the number of Profiles available")
+    public String getProfileCount() {
+		FileDB db = new FileDB();
+        return " { " + "\"No_of_Profiles\":\""  + db.getCount() + "\" }";
+    }
+	
+	@POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Profile Name",
+            notes = "Add Profile Name to the file",
+            response = ProfilePOJO.class
+    )
+    public ProfilePOJO createProfile(
+            @FormParam("username") @ApiParam(defaultValue = "username") String profileName
+            
+    ) {
+        return new ProfilePOJO(profileName);
+    }
+}
+
+
+
+
+

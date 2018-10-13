@@ -1,0 +1,5 @@
+package com.calix.profile.resources;
+
+public class ProfileResource {
+
+}

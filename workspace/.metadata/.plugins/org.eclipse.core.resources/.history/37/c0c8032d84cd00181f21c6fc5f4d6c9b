@@ -1,0 +1,13 @@
+package com.calix.profile;
+
+import io.dropwizard.Configuration;
+import io.fedrioco.dropwizard.swagger
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.*;
+import javax.validation.constraints.*;
+
+public class SampleDropWizardConfiguration extends Configuration {
+    // TODO: implement service configuration
+	@JsonProperty("swagger")
+    public SwaggerBundleConfiguration swaggerBundleConfiguration;
+}

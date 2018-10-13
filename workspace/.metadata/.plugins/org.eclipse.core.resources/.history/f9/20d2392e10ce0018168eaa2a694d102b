@@ -1,0 +1,33 @@
+package com.calix.profile;
+
+import io.dropwizard.Application;
+import com.calix.profile.resources.*;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
+
+public class SampleDropWizardApplication extends Application<SampleDropWizardConfiguration> {
+
+    public static void main(final String[] args) throws Exception {
+        new SampleDropWizardApplication().run(args);
+    }
+
+    @Override
+    public String getName() {
+        return "SampleDropWizard";
+    }
+
+    @Override
+    public void initialize(final Bootstrap<SampleDropWizardConfiguration> bootstrap) {
+        // TODO: application initialization
+    }
+
+    @Override
+    public void run(final SampleDropWizardConfiguration configuration,
+                    final Environment environment) {
+        // TODO: implement application
+    	ProfileResource resource = new ProfileResource();
+    	environment.jersey().register(resource);
+    }
+
+    
+}
